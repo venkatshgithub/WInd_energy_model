@@ -22,4 +22,18 @@ Now, using your mouse just create project folder with name of your interest and 
 Now go into terminal and type "cd" and give a space and paste by using mouse but not (ctrl+v) and press enter. Now you are in the folder
 Now type "mkdir code" - this creates the folder called code. Now type "cd code" and enter.
 
-type "gitclone 
+type "gitclone https://github.com/venkatshgithub/WInd_energy_model.git" . This will work only if I added you as collaborator. 
+
+and type "git pull" and enter
+
+Now you are good to go.
+
+You can work like all the time and you can keep all the CODE files ONLY in this git repository aka code folder. Please do not keep heavy files. 
+
+The git commands you need to know:
+
+Step 1: "git add --a " is usefull to add your changes to the server but no one can see. 
+Step 2: git commit -m "your comments for the changes" is to confirm your changes to the serve with comments
+Step 3: git push will push your code to everyone and will get a notification about your changes
+
+Always, use Step 1,2 in the order. If someone pushes the code, do always pull to get the updated code.
