@@ -3,7 +3,7 @@ Wind_energy_class_model
 
 This is the repository where we have the matlab function codes.
 
-We need a terminal to interact with github easily. Ubuntu and Mac will have inbuilt terminals. Win10 has Ubuntu app but it's a bit pain. So, I suggest all of you to install Cygwin (https://cygwin.com/install.html) and follow these guidelines to install cygwin (http://www.mcclean-cooper.com/valentino/cygwin_install/). Cygwin is terminal emulator and can be used to run python or C++ with MPI also. It helps you interact with your computer via terminal. Infact, geeks use only terminal to do all work but let's not go in there. I also do not know much shortcuts. 
+We need a terminal to interact with github easily. Ubuntu and Mac will have inbuilt terminals. Win10 has Ubuntu app but it's a bit pain. So, I suggest all of you to install Cygwin (https://cygwin.com/install.html) and follow these guidelines to install cygwin (http://www.mcclean-cooper.com/valentino/cygwin_install/). Cygwin is terminal emulator and can be used to run python or C++ with MPI also. It helps you interact with your computer via terminal. Infact, geeks use only terminal to do all work but let's not go in there. I also do not know many shortcuts. 
 
 Once you have installed Cygwin. These basic linux commands are important to interact via terminal
 
