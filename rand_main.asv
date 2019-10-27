@@ -21,14 +21,14 @@ for press_out=1:length(Pressure_required_CO2)
         [mass_out(press_out,:),Temp_out(press_out,:)] = compressor_function(Power_in,Temp_in_CO2,Pressure_in_CO2,Pressure_required_CO2(press_out),compressor_efficiency);
 end
 
-h = figure;
+figure;
 for i  = 1:5
     plot(Power_in*1E-03,mass_out(i,:),'Linewidth',2);
     hold on;
 end
 set(gca,'Fontsize',28);
 xlim([1,1000]);
-ylim([min(min(mass_out)),max(max(mass_out))])
+ylim([min(min(mass_out)),max(max(mass_out_])
 xlabel('Wind Power in kW','Fontsize',28);
 ylabel('Mass flow rate of compressed CO2 in kg/sec','Fontsize',28);
 legend('1 MPa','1.25 MPa','1.5 MPa','1.75 MPa','2.0 MPa','Fontsize',28);
