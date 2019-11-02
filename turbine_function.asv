@@ -34,9 +34,11 @@ for i=1:length(Temp_in)
     % Use efficiency to find real power, enthalpy, and temperature outputs
     W_out(i)            = turbine_efficiency*W_out_s(i);
     enthalpy_out(i)     = enthalpy_in(i)- W_out(i);
-    Temp_out(i)            = py.CoolProp.CoolProp.PropsSI('T','H',enthalpy_out(i),'P',P_out(i),'R744');
+    T_out(i)            = py.CoolProp.CoolProp.PropsSI('T','H',enthalpy_out(i),'P',P_out(i),'R744');
 end
-
+    M_out = M_out(:,1);
+    Temp_out(i) = T_out(:,1);
+(i)
 end
 
 
