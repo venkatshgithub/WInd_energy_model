@@ -16,11 +16,14 @@ function [W_out,Temp_out] = turbine_function(Temp_in,P_in,P_out,mass_in,turbine_
 
 
 
-enthalpy_out_s  = zeros(length(Temp_in));
-enthalpy_in     = zeros(length(Temp_in));
-entropy_in      = zeros(length(Temp_in));
-M_out           = zeros(length(Temp_in));
-T_out_s         = zeros(length(Temp_in));
+enthalpy_out_s  = zeros(length(Temp_in),1);
+enthalpy_in     = zeros(length(Temp_in),1);
+entropy_in      = zeros(length(Temp_in),1);
+T_out_s         = zeros(length(Temp_in),1);
+W_out_s         = zeros(length(Temp_in),1);
+W_out           = zeros(length(Temp_in),1);
+enthalpy_out    = zeros(length(Temp_in),1);
+Temp_out        = zeros(length(Temp_in),1);
 
 for i=1:length(Temp_in)
     % find isentropic values of outlet enthalpy and temperature using
