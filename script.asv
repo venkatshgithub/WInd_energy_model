@@ -8,8 +8,7 @@ hrs = transpose(linspace(1,365*24,365*24));
 
 Q = Solar(lat,long,lsi,inlettemp,area,tout);
 
-Avg_Q = reshape(Q,[24,365]);
-
+Avg_Q = reshap
 
 figure;
 plot(hrs,Q,'Linewidth',2);
