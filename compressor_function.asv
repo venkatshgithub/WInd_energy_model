@@ -17,22 +17,25 @@ function [mass_out,Temp_out] = compressor_function(Power_in,Temp_in,P_in,P_out,c
 % Compressor_efficiency = efficiency of the compressor used (dimensionless <1)
 % Q_recovered = energy recovery in the units of Watts
 
-enthalpy_out = zeros(length(Power_in),1);
-enthalpy_in = zeros(length(Power_in),1);
-entropy_in = zeros(length(Power_in),1);
-Temp_out = zeros(length(Power_in),1);
-mass_out = zeros(length(Power_in),1);
+enthalpy_out = zeros(length(Power_in));
+enthalpy_in = zeros(length(Power_in));
+entropy_in = zeros(length(Power_in));
+T_out = zeros(length(Power_in));
+M_out = zeros(length(Power_in));
 
 
 for i=1:length(Power_in)
     enthalpy_in(i) = py.CoolProp.CoolProp.PropsSI('H','T',Temp_in,'P',P_in,'R744');
     entropy_in(i) = py.CoolProp.CoolProp.PropsSI('S','T',Temp_in,'P',P_in,'R744');
+      
     enthalpy_out(i) = py.CoolProp.CoolProp.PropsSI('H','S',entropy_in(i),'P',P_out,'R744');
+    T_out(i) =  py.CoolProp.CoolProp.PropsSI('T','S',entropy_in(i),'P',P_out,'R744');
     %isentropic compression
-    mass_out(i) = (compressor_efficiency*Power_in(i))/(enthalpy_out(i)-enthalpy_in(i));  
-    %enthalpy_out(i) = enthalpy_in(i)+compressor_efficiency*Power_in(i)/(mass_out(i));
-    Temp_out(i) =  py.CoolProp.CoolProp.PropsSI('T','H',enthalpy_out(i),'P',P_out,'R744');
+    M_out(i) = (compressor_efficiency*Power_in(i))/(enthalpy_out(i)-enthalpy_in(i));  
+    
+    enthalpy_in
 end
-  
+    mass_out = M_out(:,1);
+    Temp_out =  py.CoolProp.CoolProp.PropsSI('T','S',entropy_out(i),'P',P_out,'R744');
 end
 
