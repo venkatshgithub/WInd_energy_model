@@ -1,3 +1,5 @@
+clear all
+close all
 % function [P_turbine] = wind_turbine_power(Wind_Speed,C_p)
 % Wind Speed is a vector, in m/s
 % C_p is the power coefficient
@@ -14,9 +16,13 @@ P_turbine_80(i) = 0.5*density*area*Wind_Speed_80(i)*C_p;
 
 end
 
-
-
-Average_Year = mean(reshape(P_turbine_80,[24 365]));
+Average_Year = mean(reshape(P_turbine_80./0.3,[24 365]));
+f = smooth(linspace(1,365,365)',(0.001*Average_Year)',0.1,'rloess');
+plot(f,'Linewidth',2);
+xticks([15 45 75 105 135 165 195 225 255 285 315 345])
+xticklabels({'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'})
+ylabel('Power in kW','Fontsize',20);
+set(gca,'Fontsize',20);
 Average_Day = mean(reshape(P_turbine_80,[365 24]));
 Min_Hour = min(reshape(P_turbine_80,[365 24]));
 Max_Hour = max(reshape(P_turbine_80,[365 24]));

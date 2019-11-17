@@ -47,9 +47,9 @@ for dnum = 1:length(dn)
             A=1187;
             B=0.142;
             C=0.104;
-        elseif dn(dnum)>59&&dn(dnum)<=90
+        elseif dn(dnum)>59 && dn(dnum)<=90
              A=1164;
-             B= 1130;
+             B= 0.15;
              C=0.12;
         elseif dn(dnum)>90&&dn(dnum)<=120
              A=1130;
@@ -106,14 +106,14 @@ for dnum = 1:length(dn)
         G=direct+diffuse+ground;
         % taking initial values for internal surface temperature and external
         % surface temperature tis and tes respectively
-        tis_prev=50;
+        tis_prev=80;
         tes_prev=100;
         %tsky is the sky temperature
         tsky=(tout(counter)-6)*0.707+tout(counter)*(1-0.707);
   % h is the convective coefficient which is taken for exterior surface,
   % ground,glass and sky tes is calculated
         err_itr = 100;
-        abs_fac = 0.81;
+        abs_fac = 0.93;
         while err_itr >1E-03
             disp('I am in tes iteration');
             hcext=sqrt(((0.84*(tes_prev+273)-(tout(counter)+273))^(1/3))^2+(2.38*5.4^0.89)^2);     
@@ -138,7 +138,7 @@ for dnum = 1:length(dn)
             err_itr = abs(tis_curr-tis_prev);
         end 
         Qi(counter)=hcin*area*(tis_curr-inlettemp);
-        if(Qi(counter)<0 || Qi(counter)>1000)
+        if(Qi(counter)<0 || Qi(counter)>500)
             Qi(counter) = 0.0;
         end
         counter = counter+1;
@@ -146,5 +146,6 @@ for dnum = 1:length(dn)
 end
 disp('counter ');
 disp(counter);
+
 end
 

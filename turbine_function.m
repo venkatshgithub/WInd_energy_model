@@ -28,16 +28,17 @@ Temp_out        = zeros(length(Temp_in),1);
 for i=1:length(Temp_in)
     % find isentropic values of outlet enthalpy and temperature using
     % property tables
-    enthalpy_in(i)      = py.CoolProp.CoolProp.PropsSI('H','T',Temp_in(i),'P',P_in(i),'R744');
-    entropy_in(i)       = py.CoolProp.CoolProp.PropsSI('S','T',Temp_in(i),'P',P_in(i),'R744');
-    enthalpy_out_s(i)   = py.CoolProp.CoolProp.PropsSI('H','S',entropy_in(i),'P',P_out(i),'R744');
-    T_out_s(i)          = py.CoolProp.CoolProp.PropsSI('T','S',entropy_in(i),'P',P_out(i),'R744');
+    enthalpy_in(i)      = py.CoolProp.CoolProp.PropsSI('H','T',Temp_in(i),'P',P_in,'R744');
+    entropy_in(i)       = py.CoolProp.CoolProp.PropsSI('S','T',Temp_in(i),'P',P_in,'R744');
+    enthalpy_out_s(i)   = py.CoolProp.CoolProp.PropsSI('H','S',entropy_in(i),'P',P_out,'R744');
+    T_out_s(i)          = py.CoolProp.CoolProp.PropsSI('T','S',entropy_in(i),'P',P_out,'R744');
     % find isentropic power output
-    W_out_s(i)          = (enthalpy_in(i) - enthalpy_out_s(i))*mass_in;
+    W_out_s(i)          = (enthalpy_in(i) - enthalpy_out_s(i));
     % Use efficiency to find real power, enthalpy, and temperature outputs
     W_out(i)            = turbine_efficiency*W_out_s(i);
-    enthalpy_out(i)     = enthalpy_in(i)- W_out(i);
-    Temp_out(i)            = py.CoolProp.CoolProp.PropsSI('T','H',enthalpy_out(i),'P',P_out(i),'R744');
+    enthalpy_out(i)     = (enthalpy_in(i)- W_out(i));
+    Temp_out(i)            = py.CoolProp.CoolProp.PropsSI('T','H',enthalpy_out(i),'P',P_out,'R744');
+    W_out(i) = W_out(i)*mass_in(i);
 end
 
 end
