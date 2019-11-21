@@ -145,7 +145,7 @@ for dnum = 1:length(dn)
     end
 end
 disp('counter ');
-disp(counter);
+disp(Qi);
 
 end
 

@@ -11,7 +11,7 @@ pump_pressure_in = Turbine_pressure_out;
 pump_efficiency = 0.8;
 turbine_efficiency = 0.87;
 heater_efficiency = 0.95;
-area = 1000; %1m2 of solar thermal plant
+area = 1; %1m2 of solar thermal plant
 
 %% Other calculations
 
@@ -45,7 +45,7 @@ Turbine_out_temp = zeros(length(mass_out),1);
 
 %% Calling turbine function to find the final power output
 for i = 1:length(mass_out)
-    [final_power_output(i),Turbine_out_temp(i)] = turbine_function(Turb_in_temperature,Turbine_pressure_in,Turbine_pressure_out,mass_out(i),turbine_efficiency);
+    [final_power_output(i),Turbine_out_temp(i)] = turbine_function(Turb_in_temperature(i),Turbine_pressure_in,Turbine_pressure_out,mass_out(i),turbine_efficiency);
 end
 
 Total_efficiency = final_power_output./(power_solar+transpose(Power_in));

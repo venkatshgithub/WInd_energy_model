@@ -10,6 +10,6 @@ for i = 1:length(power_solar)
     else
         enthalpy_out(i) = enthalpy_in(i)+heater_efficiency*power_solar(i)/mass_out(i);
     end
-    Turb_in_temp = py.CoolProp.CoolProp.PropsSI('T','H',enthalpy_out(i),'P',pump_press_out,'R744');
+    Turb_in_temp(i) = py.CoolProp.CoolProp.PropsSI('T','H',enthalpy_out(i),'P',pump_press_out,'R744');
 end
 
