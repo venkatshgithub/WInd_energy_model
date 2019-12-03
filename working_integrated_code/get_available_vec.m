@@ -1,4 +1,4 @@
-function available_vec = get_available_vec(captured_vec,demand_vec)
+function [available_vec, demand_met] = get_available_vec(captured_vec,demand_vec)
 
 stored_energy=0;
 tt=numel(captured_vec);

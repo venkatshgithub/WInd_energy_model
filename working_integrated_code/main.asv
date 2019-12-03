@@ -11,7 +11,7 @@ pump_pressure_in = Turbine_pressure_out;
 pump_efficiency = 0.8;
 turbine_efficiency = 0.87;
 heater_efficiency = 0.95;
-area = 10; %1m2 of solar thermal plant
+area = 1; %1m2 of solar thermal plant
 
 %% Other calculations
 
@@ -34,9 +34,7 @@ Power_in = Wind_power(80,77,0.3); % GE 1.5 MW wind turbine of CP 0.3, dia 77m at
 mass_out = pump_function(Power_in,pump_in_temp,pump_pressure_in,pump_pressure_out,pump_efficiency);
 
 %% Calling solar function to find the solar power available in that region over a year
-power_solar = Solar_power(1.0);
-
-power_solar = abs(power_solar)*area;
+power_solar = Solar_power(area);
 
 %% Calling heat addition to raise the temperature and reaching supercritical state of CO2
 
@@ -51,18 +49,15 @@ for i = 1:length(mass_out)
     [final_power_output(i),Turbine_out_temp(i)] = turbine_function(Turb_in_temperature(i),Turbine_pressure_in,Turbine_pressure_out,mass_out(i),turbine_efficiency);
 end
 
-Total_efficiency = final_power_output./(power_solar+Power_in);
+Total_efficiency = final_power_output./(power_solar+transpose(Power_in));
 
 h = figure;
 plot(linspace(1,365*24,365*24),Total_efficiency*100,'Linewidth',2);
 set(gca,'Fontsize',28);
-xlim([1,1000]);
-ylim([min(min(mass_out)),100])
+%xlim([1,1000]);
+%ylim([min(min(mass_out)),max(max(mass_out))])
 xlabel('Over a year','Fontsize',28);
 ylabel('Final efficiency','Fontsize',28);
 
 %% Save variables so Jill can work with them
 save('final_power_output','final_power_output')
-save('power_solar','power_solar')
-save('Power_in','power_wind')
-save('Total_efficiency','total_efficiency')
