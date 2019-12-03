@@ -88,7 +88,7 @@ for dnum = 1:length(dn)
              B= 0.141;
              C=0.103;
         else
-            error("Could not find day allocation");
+            error('Could not find day allocation');
         end
         %atmospheric clearness Cn is taken from ashrae handbook for texas
         Cn=0.9;
