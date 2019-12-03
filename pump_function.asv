@@ -1,8 +1,0 @@
-function [mass_out] = pump_function(Power_in,pump_in_temp,pump_pressure_in,pump_out_temp,pump_pressure_out,efficiency)
-
-
-
-
-
-end
-
