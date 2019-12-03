@@ -53,6 +53,7 @@ end
 
 Total_efficiency = final_power_output./(power_solar+Power_in);
 
+
 h = figure;
 plot(linspace(1,365*24,365*24),Total_efficiency*100,'Linewidth',2);
 set(gca,'Fontsize',28);
@@ -62,7 +63,7 @@ xlabel('Over a year','Fontsize',28);
 ylabel('Final efficiency','Fontsize',28);
 
 %% Save variables so Jill can work with them
-save('final_power_output','final_power_output')
-save('power_solar','power_solar')
-save('Power_in','power_wind')
-save('Total_efficiency','total_efficiency')
+save('final_power_output.mat','final_power_output')
+save('power_solar.mat','power_solar')
+save('Power_in.mat','Power_in')
+save('Total_efficiency.mat','Total_efficiency')
