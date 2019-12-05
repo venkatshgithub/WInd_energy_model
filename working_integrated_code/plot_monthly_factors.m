@@ -1,4 +1,4 @@
-function plot_monthly_factors(monthly_resource, monthly_demand)
+function plot_monthly_factors(monthly_resource, monthly_demand, model)
 
 %monthly_factors.(intermit or storage).(avail or cap)
 fsize=20;
@@ -20,7 +20,7 @@ monthaxes(fsize,12)
 ylabel(ttl)
 xlabel('Month')
 set(gcf, 'Position',  [100, 100, 1000, 800])
-saveas(gcf, 'Power Availability Factor Comparison _othert.png')
+saveas(gcf, strcat('Power Availability Factor Comparison',model,'.png'));
 
 
 figure(2)
@@ -36,4 +36,4 @@ monthaxes(fsize,12)
 ylabel(ttl)
 xlabel('Month')
 set(gcf, 'Position',  [100, 100, 1000, 800])
-saveas(gcf, 'Demand-Met Factor Comparison_othert.png')
+saveas(gcf, strcat('Demand-Met Factor Comparison',model,'.png'));
