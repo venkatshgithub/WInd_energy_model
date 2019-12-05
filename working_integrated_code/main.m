@@ -27,7 +27,7 @@ pump_out_temp = pump_in_temp+10;
 %% Acquiring wind power available
 
 % Power_in = Wind_power(80,77,0.3); % GE 1.5 MW wind turbine of CP 0.3, dia 77m at height 80m
-Power_in = Wind_power_jill(75,0.3); % 
+Power_in = Wind_power_jill(75,0.3,'hummer'); % 
 %% Calling pump function to find the mass rate of CO2 for the available wind power 
     % Note: The actual process of compression is not known. So, as per the real scenario in Steam Rankine cycle, we
     % considered liquid compression rather gas compression. 
