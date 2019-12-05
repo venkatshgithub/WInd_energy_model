@@ -53,7 +53,7 @@ end
 
 Total_efficiency = final_power_output./(power_solar+Power_in);
 
-mean_efficiency = mean(nonzeros(Total_efficiency));
+mean_efficiency = mean(nonzeros(Total_efficiency),);
 
 %std_efficiency = 
 
