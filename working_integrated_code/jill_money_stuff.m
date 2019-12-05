@@ -16,12 +16,15 @@ cap_kw.solar = mean(solar_year);
 
 ic.total.wind=ic.rate_kwh.wind*cap_kw.wind;
 ic.total.solar=ic.rate_kwh.solar*cap_kw.solar;
+ic.total.total = ic.total.wind+ic.total.solar;
 vc.year.wind=vc.year_kwh.wind*cap_kw.wind;
 vc.year.solar=vc.year_kwh.solar*cap_kw.solar;
 vc.month.wind=vc.year.wind/12;
 vc.month.solar=vc.year.solar/12;
 vc.hour.wind=vc.year.wind/8760;
 vc.hour.solar=vc.year.wind/8760;
+
+revenue_usd_year=repmat(revenue_usd_year,[7,1]);
 
 money_history = @(ic,hvc,hrev) cumsum(hrev-hvc)-ic;
 
@@ -32,4 +35,4 @@ fsize=20;
 
 figure(3)
 plot(mhist.wind.hourly)
-monthaxes(fsize,8760)
+monthaxes(fsize,length(revenue_usd_year))

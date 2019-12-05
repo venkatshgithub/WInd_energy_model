@@ -9,7 +9,7 @@ solar_year = Solar_power(1.0);
 solar_year = abs(solar_year)*solar_area*1e-3;
 
 %% Our cycle
-meet_factor=(1/4)*0.25/100;
+meet_factor=(0.5)*(1/4)*0.25/100;
 power_captured_kwh = final_power_output*1e-3;
 power_captured_kwh(power_captured_kwh>4e3)=2e3;
 power_demand_kwh = meet_factor*Hourly_Demand*1e3;

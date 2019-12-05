@@ -19,9 +19,9 @@ area = 10; %1m2 of solar thermal plant
 % pressure
 pump_in_temp = py.CoolProp.CoolProp.PropsSI('T','Q',0,'P',pump_pressure_in,'R744');
 
-%As per the Saravi 2019 ("An invesi. into sCO2 pump
-%performance...."), there is a raise of 10K due to compression. Hence, the
-%pump output temperature is taken as input+10K
+%As per the Saravi 2019 ("An invesi. into sCO2 pump performance...."),
+%there is a raise of 10K due to compression. Hence, the pump output
+%temperature is taken as input+10K
 pump_out_temp = pump_in_temp+10;
 
 %% Acquiring wind power available
@@ -63,7 +63,7 @@ xlabel('Over a year','Fontsize',28);
 ylabel('Final efficiency','Fontsize',28);
 
 %% Save variables so Jill can work with them
-save('final_power_output_othert.mat','final_power_output')
+save('final_power_output_hummer.mat','final_power_output')
 save('power_solar.mat','power_solar')
-save('Power_in_othert.mat','Power_in')
-save('Total_efficiency_othert.mat','Total_efficiency')
+save('Power_in_hummer.mat','Power_in')
+save('Total_efficiency_hummer.mat','Total_efficiency')
