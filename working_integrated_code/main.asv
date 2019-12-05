@@ -67,13 +67,12 @@ title('System efficiency','FontSize',28);
 xlabel('Efficiency','Fontsize',28);
 ylabel('Hourly occurences over a year','Fontsize',28);
 set(gcf, 'Position',  [100, 100, 1000, 800])
-saveas(gcf,'Efficiency_histogram.eps');
+saveas(gcf,'Efficiency_histogram.png');
 
 % Wind power
-plotter(Power_in,"Wind Power",0.1);
 
-% Solar power
-plotter(power_solar,"Solar Power",0.1);
+pl
+
 
 %% Save variables so Jill can work with them
 save('final_power_output_hummer.mat','final_power_output')
