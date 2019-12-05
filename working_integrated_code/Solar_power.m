@@ -5,6 +5,6 @@ long = -99.49;
 lsi = 105;
 inlettemp = 24;
 power_solar = Solar(lat,long,lsi,inlettemp,area,tout);
-disp(power_solar)
+% disp(power_solar);
 end
 

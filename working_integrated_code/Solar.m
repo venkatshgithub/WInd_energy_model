@@ -115,7 +115,7 @@ for dnum = 1:length(dn)
         err_itr = 100;
         abs_fac = 0.93;
         while err_itr >1E-03
-            disp('I am in tes iteration');
+%             disp('I am in tes iteration');
             hcext=sqrt(((0.84*(tes_prev+273)-(tout(counter)+273))^(1/3))^2+(2.38*5.4^0.89)^2);     
             hrg=0.9*5.67*10^-8*0.5*((273+tout(counter))^4-(273+tes_prev)^4)/((273+tout(counter))-(273+tes_prev));
             hrsky=0.9*5.67*10^-8*0.5*((tsky)^4-(tes_prev)^4)/((tsky)-(tes_prev));
@@ -128,7 +128,7 @@ for dnum = 1:length(dn)
         err_itr = 100;
   % to calclulate surface interirior temperature
         while err_itr >1E-03
-            disp('I am in tis iteration');
+%             disp('I am in tis iteration');
             hrglass=5.67*10^-8*abs_fac*((273+tes)^4-(273+inlettemp)^4)/((273+tes)-(273+inlettemp));%0.81 is absorptance which can be changed
             hcin=1.31*(abs(tis_prev-inlettemp));    
             %assuming a single surface and no radiative heat transfer inside the
@@ -144,8 +144,8 @@ for dnum = 1:length(dn)
         counter = counter+1;
     end
 end
-disp('counter ');
-disp(Qi);
+% disp('counter ');
+% disp(Qi);
 
 end
 
