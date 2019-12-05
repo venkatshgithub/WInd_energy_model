@@ -53,6 +53,10 @@ end
 
 Total_efficiency = final_power_output./(power_solar+Power_in);
 
+mean_efficiency = mean(nonzeros(Total_efficiency));
+
+%std_efficiency = 
+
 
 h = figure;
 plot(linspace(1,365*24,365*24),Total_efficiency*100,'Linewidth',2);
