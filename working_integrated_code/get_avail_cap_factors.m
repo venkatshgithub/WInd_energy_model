@@ -17,7 +17,6 @@ resource_factors.annual.storage = find_resource_factors(available_year);
 % monthly stuff
 mm=tt/12;
 captured_month=reshape(captured_year,[mm,12]);
-demand_month=reshape(demand_year,[mm,12]);
 available_month = reshape(available_year,[mm,12]);
 
 resource_factors.monthly.intermit = find_resource_factors(captured_month);

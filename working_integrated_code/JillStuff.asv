@@ -10,3 +10,6 @@ power_demand_kwh = Hourly_Demand;
 plot_monthly_factors(resource_factors.monthly)
 
 revenue_usd_year = demand_met.*prices_kwh;
+revenue_usd_total = sum(revenue_usd_year);
+
+save(gcf, 'Capacity')
