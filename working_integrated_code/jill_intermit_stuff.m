@@ -2,7 +2,7 @@
 % declutter
 
 %% Natural resources
-wind_year = Wind_power_jill(80,77,0.3)*1e-3;
+wind_year = Wind_power_jill(75,0.3)*1e-3;
 
 solar_area = 10;
 solar_year = Solar_power(1.0);

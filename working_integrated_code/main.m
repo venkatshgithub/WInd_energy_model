@@ -26,8 +26,8 @@ pump_out_temp = pump_in_temp+10;
 
 %% Acquiring wind power available
 
-Power_in = Wind_power(80,77,0.3); % GE 1.5 MW wind turbine of CP 0.3, dia 77m at height 80m
-
+% Power_in = Wind_power(80,77,0.3); % GE 1.5 MW wind turbine of CP 0.3, dia 77m at height 80m
+Power_in = Wind_power_jill(75,0.3); % 
 %% Calling pump function to find the mass rate of CO2 for the available wind power 
     % Note: The actual process of compression is not known. So, as per the real scenario in Steam Rankine cycle, we
     % considered liquid compression rather gas compression. 
@@ -63,7 +63,7 @@ xlabel('Over a year','Fontsize',28);
 ylabel('Final efficiency','Fontsize',28);
 
 %% Save variables so Jill can work with them
-save('final_power_output.mat','final_power_output')
+save('final_power_output_othert.mat','final_power_output')
 save('power_solar.mat','power_solar')
-save('Power_in.mat','Power_in')
-save('Total_efficiency.mat','Total_efficiency')
+save('Power_in_othert.mat','Power_in')
+save('Total_efficiency_othert.mat','Total_efficiency')

@@ -1,4 +1,4 @@
-function [Power_wind] = Wind_power_jill(height,rotor_dia,Cp)
+function [Power_wind] = Wind_power_jill(height,Cp)
 
 % Wind Speed is a vector, in m/s
 % C_p is the power coefficient
