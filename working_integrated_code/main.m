@@ -6,8 +6,8 @@ close all
 %% Inputs
 Turbine_pressure_in = 20E06; %MPa
 pump_pressure_out = Turbine_pressure_in;
-Turbine_pressure_out = 0.52E06;%MPa
-pump_pressure_in = Turbine_pressure_out;
+Turbine_pressure_out = 0.72E06;%MPa
+pump_pressure_in = Turbine_pressure_out*0.8;
 pump_efficiency = 0.8;
 turbine_efficiency = 0.87;
 heater_efficiency = 0.95;
